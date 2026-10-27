@@ -1,0 +1,119 @@
+.featured-article {
+    flex: 0 0 209px;   /* no crece, no se encoge, base 210px */
+    height: 200px;
+    box-sizing: border-box;
+    /* padding: 10px; */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(155, 155, 155, 0.1);
+    /* backdrop-filter: blur(20px); */
+    border: 1px solid rgb(116, 116, 116, 0.4);
+    cursor: pointer;
+}
+
+.featured-article {
+    transform: translateY(0);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.featured-article:hover {
+    transform: translateY(-2px);
+    z-index: 2;
+    border-color: rgba(232, 229, 229, 0.8);
+}
+
+
+
+.fa-img {
+    object-fit: cover;
+    width: 100%;
+    height: 65%;
+    box-sizing: border-box;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.fa-data {
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 50%;
+    position: relative;
+    /* overflow: hidden; */
+
+    background: #0b1a1f;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    /* border: 1px solid yellow; */
+
+}
+
+.fa-data:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -120px;
+    height: 120px;
+    background: linear-gradient(
+        to bottom,
+        rgba(11, 26, 31, 0) 0%,
+        rgba(11, 26, 31, 0.08) 20%,
+        rgba(11, 26, 31, 0.25) 40%,
+        rgba(11, 26, 31, 0.5) 60%,
+        rgba(11, 26, 31, 0.8) 80%,
+        #0b1a1f 100%
+    );
+    pointer-events: none;
+}
+
+.fa-author {
+    color: white;
+    font-size: 10px;
+    font-weight: 400;
+    margin: 0;
+}
+.fa-date {
+    margin: 0;
+    color: white;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    font-weight: 200;
+}
+
+.fa-data-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px 0;
+    box-sizing: border-box;
+}
+
+.fa-author {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fa-date {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.fa-title {
+    margin: 4px 0 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+    color: white;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.25;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 40px;
+}

@@ -1,0 +1,119 @@
+.hero {
+    position: relative;
+    width: 100%;
+    height: auto;
+    /* border: 1px solid salmon; */
+    box-sizing: border-box;
+    flex-shrink: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-banner-video {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: 85%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0px 0px 0px;
+    /* border: 1px solid white; */
+}
+
+
+.page-tittle-container {
+    /* border: 2px solid white; */
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 80px;
+    /* padding-left: 5px; */
+    margin-bottom: 50px;
+}
+
+.page-tittle {
+    width: 300px;
+    object-fit: contain;
+}
+
+.page-tittle-h1 {
+    color: white;
+    font-size: 50px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.page-tittle-description {
+    color: rgba(255, 255, 255, 0.808);
+    font-size: 13px;
+    line-height: 1.2;
+    margin: 0;
+    font-weight: 200;
+    width: 320px;
+}
+
+.featured-articles-container {
+    /* border: 1px solid red; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-articles-tittle {
+    color: white;
+    margin: 0;
+    font-size: 14px;
+    margin-left: 5px;
+    font-weight: 400;
+}
+
+.featured-articles {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    padding: 10px;
+}
+
+
+
+.featured-articles {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent; 
+    transition: scrollbar-color 0.3s ease;
+}
+
+.featured-articles:hover {
+    scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+
+.featured-articles::-webkit-scrollbar { height: 4px; }
+.featured-articles::-webkit-scrollbar-track { background: transparent; }
+.featured-articles::-webkit-scrollbar-thumb { background: transparent; border-radius: 999px; transition: background .3s; }
+.featured-articles:hover::-webkit-scrollbar-thumb { background: rgba(255,255,255,.25); }
+.featured-articles::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.45); }
+
+@supports not selector(::-webkit-scrollbar) {
+    .featured-articles { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+    .featured-articles:hover { scrollbar-color: rgba(255,255,255,.25) transparent; }
+}
