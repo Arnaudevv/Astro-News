@@ -32,5 +32,9 @@ html, body, #root {
   -ms-overflow-style: none;
 }
 
+.main-content.mars {
+  background: rgb(51, 28, 0);
+}
+
 .main-content::-webkit-scrollbar { display: none; }
 

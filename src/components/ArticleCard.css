@@ -1,6 +1,6 @@
 .article-card {
     width: 100%;
-    min-width: 0;          /* evita que el contenido fuerce la columna a crecer */
+    min-width: 0;
     height: 400px;
     box-sizing: border-box;
     display: flex;
@@ -67,11 +67,9 @@
     text-transform: uppercase;
     color: white;
     background: rgba(0, 0, 0, 0.45);
-    /* backdrop-filter: blur(6px); */
     border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-/* Zona de texto */
 .ac-data {
     flex: 1;
     display: flex;

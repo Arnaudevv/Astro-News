@@ -10,25 +10,48 @@
     justify-content: center;
     flex-direction: column;
     padding-left: 8%;
-    /* border: 1px solid red; */
 }
 
-.news-view.mars {
-    background: rgb(51, 28, 0);
-}
-
-
-
+.news-view.mars { background: rgb(51, 28, 0); }
 .news-view.mars::before {
     background: linear-gradient(
-    to bottom,
-    rgba(51, 28, 0, 0) 0%,
-    rgba(51, 28, 0, 0.08) 20%,
-    rgba(51, 28, 0, 0.25) 40%,
-    rgba(51, 28, 0, 0.5) 60%,
-    rgba(51, 28, 0, 0.8) 80%,
-    rgb(51, 28, 0) 100%
-);
+        to bottom,
+        rgba(51, 28, 0, 0) 0%,
+        rgba(51, 28, 0, 0.08) 20%,
+        rgba(51, 28, 0, 0.25) 40%,
+        rgba(51, 28, 0, 0.5) 60%,
+        rgba(51, 28, 0, 0.8) 80%,
+        rgb(51, 28, 0) 100%
+    );
+}
+
+.news-view.webb { background: rgb(2, 3, 8); }
+
+.news-view.webb::before {
+    background: linear-gradient(
+        to bottom,
+        rgba(2, 3, 8, 0) 0%,
+        rgba(2, 3, 8, 0.08) 20%,
+        rgba(2, 3, 8, 0.25) 40%,
+        rgba(2, 3, 8, 0.5) 60%,
+        rgba(2, 3, 8, 0.8) 80%,
+        rgb(2, 3, 8) 100%
+    );
+}
+
+
+.news-view.rockets { background: rgb(135, 190, 235); }
+
+.news-view.rockets::before {
+    background: linear-gradient(
+        to bottom,
+        rgba(135, 190, 235, 0) 0%,
+        rgba(135, 190, 235, 0.08) 20%,
+        rgba(135, 190, 235, 0.25) 40%,
+        rgba(135, 190, 235, 0.5) 60%,
+        rgba(135, 190, 235, 0.8) 80%,
+        rgb(135, 190, 235) 100%
+    );
 }
 
 
@@ -52,15 +75,49 @@
 }
 
 .news-view-content {
-    /* border: 1px solid white; */
     width: 92%;
     height: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    align-content: start;   /* las filas no se estiran para llenar la altura */
+    align-content: start;  
 }
 
 .news-title {
     color: white;
 }
+
+.no-results {
+    color: white;
+}
+
+
+
+.loading-card {
+    width: 100%;
+    min-width: 0;
+    height: 400px;
+    box-sizing: border-box;
+    border-radius: 14px;
+    background: rgba(155, 155, 155, 0.1);
+    border: 1px solid rgba(116, 116, 116, 0.4);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+}
+
+.loading-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        100deg,
+        transparent 20%,
+        rgba(255, 255, 255, 0.12) 50%,
+        transparent 80%
+    );
+    transform: translateX(-100%);
+    animation: fa-shimmer 1.4s ease-in-out infinite;
+}
+@keyframes fa-shimmer { to { transform: translateX(100%); } }
+@media (prefers-reduced-motion: reduce) { .fa-loading::after { animation: none; } }

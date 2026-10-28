@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 const BASE_URL = 'https://api.spaceflightnewsapi.net/v4/articles/';
 
-export function useArticles(filter, limit = 8) {
+export function useArticles(filter, limit = 20) {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -25,7 +25,7 @@ export function useArticles(filter, limit = 8) {
                     signal: controller.signal,
                 });
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
-
+                
                 const data = await response.json();
                 setItems(data.results);
             } catch (err) {
