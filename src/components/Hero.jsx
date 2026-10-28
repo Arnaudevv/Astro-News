@@ -1,6 +1,6 @@
 import './Hero.css'
 import './FilterBar.css'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { useArticles } from '../UseArticles.jsx'
 import { FeaturedArticle } from './FeaturedArticle.jsx'
@@ -51,8 +51,31 @@ export function Hero({ searchFilters, setActiveFilter, activeFilter, searchTerm,
 
 function FilterBar({ searchFilters, setActiveFilter, activeFilter, searchTerm, setSearchTerm }) {
     const [searchOpen, setSearchOpen] = useState(false)
+    const [visible, setVisible] = useState(true)
+    
+    // FIlterBar Scroll Effect -> Implemented with AI
+    const previousScrollTop = useRef(0)
+    useEffect(() => {
+        const scrollContainer = document.querySelector('.main-content')
+        if (!scrollContainer) return
+
+        previousScrollTop.current = scrollContainer.scrollTop
+
+        const handleScroll = () => {
+            const currentScrollTop = scrollContainer.scrollTop
+
+            if (currentScrollTop < previousScrollTop.current) setVisible(true)
+            else if (currentScrollTop > previousScrollTop.current && currentScrollTop >= 200) setVisible(false)
+
+            previousScrollTop.current = currentScrollTop
+        }
+
+        scrollContainer.addEventListener('scroll', handleScroll, { passive: true })
+        return () => scrollContainer.removeEventListener('scroll', handleScroll)
+    }, [])
+
     return (
-        <div className="filter-bar">
+        <div className={`filter-bar ${visible ? '' : 'hidden'}`}>
             <h1 className='filter-bar-title'>AstraNews</h1>
             <div className='filters'>
                 {searchFilters.map((filter, index) => (
