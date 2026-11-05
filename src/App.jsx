@@ -3,6 +3,7 @@ import { Hero } from './components/Hero'
 import { NewsRenderer } from './components/NewsRenderer';
 import './App.css'
 
+// --- COOKIES ---
 export function getCookie(name) {
     const cookie = document.cookie
         .split("; ")
@@ -19,6 +20,7 @@ export function setCookie(name, value, maxAge = 60 * 60 * 24 * 7) {
 function App() {
   const searchFilters = ["General", "Mars", "Webb", "ISS", "Rockets", "Starlink"];
   
+  // --- Active Filter ---
   const [activeFilter, setActiveFilter] = useState(() => {
     const savedFilter = getCookie("activeFilter");
     return searchFilters.includes(savedFilter) ? savedFilter : searchFilters[0];
@@ -28,7 +30,7 @@ function App() {
     setCookie("activeFilter", activeFilter);
   }, [activeFilter]);
 
-
+  // --- Search-Bar
   const [searchTerm, setSearchTerm] = useState(() => getCookie("searchTerm") ?? "");
 
   useEffect(() => {

@@ -51,8 +51,8 @@ export function Hero({ searchFilters, setActiveFilter, activeFilter, searchTerm,
 
 function FilterBar({ searchFilters, setActiveFilter, activeFilter, searchTerm, setSearchTerm }) {
     const [searchOpen, setSearchOpen] = useState(false)
-    const [visible, setVisible] = useState(true)
     
+    const [visible, setVisible] = useState(true)
     // FIlterBar Scroll Effect -> Implemented with AI
     const previousScrollTop = useRef(0)
     useEffect(() => {
